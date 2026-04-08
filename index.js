@@ -45,7 +45,7 @@ app.use(
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:3001"],
+    origin: ["http://localhost:3000", "http://localhost:3001", "http://localhost:5173", "http://localhost:5174"],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
@@ -97,6 +97,12 @@ app.get("/user/myGeneralInquiries", MyGeneralInquiries);
 
 // Feedback
 app.post("/user/addFeedback", AddFeedback);
+
+app.get("/", (req, res) => {
+  res.json({
+    message: "City Events Server Started"
+  })
+});
 
 // ─────────────────────────────────────────────────────────────────────────────
 app.listen(PORT, () =>
